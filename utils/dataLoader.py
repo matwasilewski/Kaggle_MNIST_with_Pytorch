@@ -32,11 +32,14 @@ class KaggleMNIST(data.Dataset):
 
         image = self.dataset.iloc[idx, 1:]
         label = self.dataset.iloc[idx, 0]
-        
-        image = np.array([image])
-        label = np.array([label])
                 
-#         PIL_image = Image.fromarray(image.astype(np.uint8))
+        image = np.array([image])
+        image = np.squeeze(image)
+        
+        label = np.array([label])
+        label = np.squeeze(label)
+        
+        # PIL_image = Image.fromarray(image.astype(np.uint8))
         
         # image = landmarks.astype('float').reshape(-1, 2)
         sample = {'image': image, 'label': label}
